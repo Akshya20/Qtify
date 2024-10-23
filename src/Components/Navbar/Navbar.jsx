@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonImage from "../../Buttons/Button.png";
+import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.css";
@@ -12,12 +12,10 @@ function Navbar({ searchData }) {
         <Logo />
       </Link>
       <Search
-        placeholder="Search a song of your choice"
+        placeholder="Search"
         searchData={searchData}
       />
-      <Link to="/feedback"> {/* Assuming you want to link to a feedback page */}
-        <img src={ButtonImage} alt="Give Feedback" style={{ cursor: "pointer" }} />
-      </Link>
+       <Button> Give Feedback</Button>
     </nav>
   );
 }
