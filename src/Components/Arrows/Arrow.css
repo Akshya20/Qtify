@@ -1,0 +1,26 @@
+.arrow {
+    width: 40px; /* Width of the arrow container */
+    height: 40px; /* Height of the arrow container */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: rgba(0, 0, 0, 0.5); /* Background color */
+    border-radius: 50%; /* Make it circular */
+    cursor: pointer; /* Change cursor on hover */
+    position: absolute; /* Position relative to the Swiper */
+    z-index: 10; /* Ensure it's on top */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .left-arrow {
+    left: 10px; /* Position from the left */
+  }
+  
+  .right-arrow {
+    right: 10px; /* Position from the right */
+  }
+  
+  /* Add hover effect */
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+  }

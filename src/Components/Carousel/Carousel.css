@@ -1,0 +1,66 @@
+.swiper {
+    width: 100%; /* Full width for the carousel */
+    height: auto; /* Height will adjust based on content */
+  }
+  
+  /* Style for the SwiperSlide */
+  .swiper-slide {
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 1px; /* Padding around each slide */
+  }
+  
+  /* Navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff; /* Change button color */
+    width: 40px; /* Width of the navigation buttons */
+    height: 40px; /* Height of the navigation buttons */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 50%; /* Make buttons circular */
+    display: flex; /* Use flex to center the icon */
+    justify-content: center; /* Center the icon */
+    align-items: center; /* Center the icon */
+    z-index: 10; /* Ensure buttons are on top */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  /* Add hover effect to navigation buttons */
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+  }
+  
+  /* Style for the album cards within the swiper slides */
+  .swiper-slide .albumCard {
+    max-width: 250px; /* Set a max width for album cards */
+    margin: 0 auto; /* Center the album card */
+    transition: transform 0.2s; /* Smooth transition for scaling */
+  }
+  
+  /* Add hover effect for album cards */
+  .swiper-slide .albumCard:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+  }
+  
+  /* Style for the left and right arrow icons (assuming you have custom icons) */
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px; /* Size of the icons */
+    color: #fff; /* Icon color */
+  }
+  
+  /* Optional: Style for pagination bullets if you decide to use them */
+  .swiper-pagination {
+    bottom: 10px; /* Positioning of the pagination */
+  }
+  
+  .swiper-pagination-bullet {
+    background: #fff; /* Bullet color */
+    opacity: 0.7; /* Default opacity */
+  }
+  
+  .swiper-pagination-bullet-active {
+    opacity: 1; /* Active bullet opacity */
+  }
