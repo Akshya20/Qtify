@@ -1,0 +1,52 @@
+.sectionContainer {
+    padding: 20px;
+    background-color: #111; /* Dark background */
+    color: white;
+  }
+  
+  /* Header section containing the title and button */
+  .header {
+    display: flex;
+    justify-content: space-between; /* Title on the left, button on the right */
+    align-items: center;
+    margin-bottom: 20px; /* Space between header and grid */
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .collapseButton {
+    color: #00ff00; /* Green color for Collapse button */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Grid layout for the album cards */
+  .albumGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 20px;
+  }
+  
+  /* Ensure album cards fit well in the grid */
+  .albumCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #222;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .albumCard img {
+    max-width: 100%;
+    border-bottom: 1px solid #333;
+  }
+  
+  .albumName {
+    text-align: center;
+  }

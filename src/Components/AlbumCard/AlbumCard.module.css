@@ -1,0 +1,40 @@
+.albumContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px; /* Adjust spacing between cards */
+  }
+  
+  .albumCard {
+    width: 180px; /* Adjust width to match the design */
+    height: 205px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: 160px;
+  }
+  
+  .cardContent {
+    padding: 8px;
+  }
+  
+  .followChip {
+    font-size: 14px;
+    background-color: #0a0a07f3 !important; 
+    color: #fff !important;
+    padding-top: 30px;
+    margin-top: 1px;
+    margin-left: 5px;
+  }
+  
+  .albumName {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff; /* Album name text color */
+  }

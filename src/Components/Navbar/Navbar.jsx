@@ -15,9 +15,10 @@ function Navbar({ searchData }) {
         placeholder="Search"
         searchData={searchData}
       />
-       <Button> Give Feedback</Button>
+       <Button />
     </nav>
   );
 }
 
 export default Navbar;
+
