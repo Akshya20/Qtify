@@ -35,9 +35,9 @@ function Section() {
       });
   }, []);
 
-  const handleCollapseToggle = () => {
-    setCollapsed(!collapsed);
-  };
+//   const handleCollapseToggle = () => {
+//     setCollapsed(!collapsed);
+//   };
 
   const handleShowAllToggle = () => {
     setShowAll(!showAll); // Toggle the "Show All" state
@@ -50,15 +50,15 @@ function Section() {
         <h2>Top Albums</h2>
         <Button
           variant="text"
-          onClick={handleCollapseToggle}
+          onClick={handleShowAllToggle}
           className={styles.collapseButton}
         >
-          {collapsed ? "Expand" : "Collapse"}
+          {showAll ? "Expand" : "showAll"}
         </Button>
       </div>
 
       {/* Grid Section */}
-      {!collapsed && (
+      {!showAll && (
         <div className={styles.albumGrid}>
           {albums.map((album) => (
             <AlbumCard
