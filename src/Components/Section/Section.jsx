@@ -53,7 +53,7 @@ function Section() {
           onClick={handleShowAllToggle}
           className={styles.collapseButton}
         >
-          {showAll ? "Expand" : "Show All"}
+          {showAll ? "Collapse" : "Show All"}
         </Button>
       </div>
 
