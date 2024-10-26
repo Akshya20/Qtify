@@ -6,84 +6,53 @@ import { Button } from "@mui/material";
 import Carousel from "../Carousel/Carousel";
 
 function Section() {
-  const [albums, setAlbums] = useState([]);
-  const [newalbums , setnewAlbums] = useState([]);
-  const [collapsed, setCollapsed] = useState(false);
-  const [showAll, setShowAll] = useState(false);
+    const [topAlbums, setTopAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
+  const [collapsedTopAlbums, setCollapsedTopAlbums] = useState(false);
+  const [collapsedNewAlbums, setCollapsedNewAlbums] = useState(false);
 
   // Fetch data for top albums from the API
   useEffect(() => {
     axios
       .get("https://qtify-backend-labs.crio.do/albums/top")
       .then((response) => {
-        setAlbums(response.data);
-        console.log("result",response.data);
+        setTopAlbums(response.data);
+        console.log("Top Albums:", response.data);
       })
       .catch((error) => {
-        console.error("Error fetching albums:", error);
+        console.error("Error fetching top albums:", error);
       });
   }, []);
+
   useEffect(() => {
     axios
       .get("https://qtify-backend-labs.crio.do/albums/new")
       .then((response) => {
-        setnewAlbums(response.data);
-        console.log("result",response.data);
+        setNewAlbums(response.data);
+        console.log("New Albums:", response.data);
       })
       .catch((error) => {
-        console.error("Error fetching albums:", error);
+        console.error("Error fetching new albums:", error);
       });
   }, []);
 
-  const handleCollapseToggle = () => {
-    setCollapsed(!collapsed);
-  };
-
-  const handleShowAllToggle = () => {
-    setShowAll(!showAll); // Toggle the "Show All" state
-  };
-
   return (
     <div className={styles.sectionContainer}>
-      {/* Header Section with Title and Collapse Button */}
+      {/* Top Albums Section */}
       <div className={styles.header}>
         <h2>Top Albums</h2>
         <Button
           variant="text"
-          onClick={handleCollapseToggle}
+          onClick={() => setCollapsedTopAlbums(!collapsedTopAlbums)}
           className={styles.collapseButton}
         >
-          {collapsed ? "Collapse" : "Show All"}
+          {collapsedTopAlbums ? "Collapse" : "Show All"}
         </Button>
       </div>
 
-      {/* Grid Section */}
-      {collapsed && (
+      {collapsedTopAlbums ? (
         <div className={styles.albumGrid}>
-          {albums.map((album) => (
-            <AlbumCard
-              key={album.id}
-              albumName={album.title}
-              imageUrl={album.image}
-              follows={album.follows}
-            />
-          ))}
-        </div>
-      )}
-      <div className={styles.header}>
-        <h2>New Albums</h2>
-        <Button
-          variant="text"
-          onClick={handleShowAllToggle}
-          className={styles.showAllButton}
-        >
-          {showAll ? "Collapse" : "Show All"}
-        </Button>
-      </div>
-
-      {showAll ? (
-        <div className={styles.albumGrid}>
-          {newalbums.map((album) => (
+          {topAlbums.map((album) => (
             <AlbumCard
               key={album.id}
               albumName={album.title}
@@ -94,7 +63,44 @@ function Section() {
         </div>
       ) : (
         <Carousel
-          items={newalbums}
+          items={topAlbums}
+          renderItem={(album) => (
+            <AlbumCard
+              key={album.id}
+              albumName={album.title}
+              imageUrl={album.image}
+              follows={album.follows}
+            />
+          )}
+        />
+      )}
+
+      {/* New Albums Section */}
+      <div className={styles.header}>
+        <h2>New Albums</h2>
+        <Button
+          variant="text"
+          onClick={() => setCollapsedNewAlbums(!collapsedNewAlbums)}
+          className={styles.collapseButton}
+        >
+          {collapsedNewAlbums ? "Collapse" : "Show All"}
+        </Button>
+      </div>
+
+      {collapsedNewAlbums ? (
+        <div className={styles.albumGrid}>
+          {newAlbums.map((album) => (
+            <AlbumCard
+              key={album.id}
+              albumName={album.title}
+              imageUrl={album.image}
+              follows={album.follows}
+            />
+          ))}
+        </div>
+      ) : (
+        <Carousel
+          items={newAlbums}
           renderItem={(album) => (
             <AlbumCard
               key={album.id}
