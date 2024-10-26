@@ -9,6 +9,7 @@ function Section() {
   const [albums, setAlbums] = useState([]);
   const [newalbums , setnewAlbums] = useState([]);
   const [collapsed, setCollapsed] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   // Fetch data for top albums from the API
   useEffect(() => {
@@ -36,6 +37,10 @@ function Section() {
 
   const handleCollapseToggle = () => {
     setCollapsed(!collapsed);
+  };
+
+  const handleShowAllToggle = () => {
+    setShowAll(!showAll); // Toggle the "Show All" state
   };
 
   return (
@@ -67,18 +72,39 @@ function Section() {
       )}
       <div className={styles.header}>
         <h2>New Albums</h2>
+        <Button
+          variant="text"
+          onClick={handleShowAllToggle}
+          className={styles.showAllButton}
+        >
+          {showAll ? "Collapse" : "Show All"}
+        </Button>
       </div>
-      <Carousel
-        items={newalbums}
-        renderItem={(album) => (
-          <AlbumCard
-            key={album.id}
-            albumName={album.title}
-            imageUrl={album.image}
-            follows={album.follows}
-          />
-        )}
-      />
+
+      {showAll ? (
+        <div className={styles.albumGrid}>
+          {newalbums.map((album) => (
+            <AlbumCard
+              key={album.id}
+              albumName={album.title}
+              imageUrl={album.image}
+              follows={album.follows}
+            />
+          ))}
+        </div>
+      ) : (
+        <Carousel
+          items={newalbums}
+          renderItem={(album) => (
+            <AlbumCard
+              key={album.id}
+              albumName={album.title}
+              imageUrl={album.image}
+              follows={album.follows}
+            />
+          )}
+        />
+      )}
     </div>
   );
 }

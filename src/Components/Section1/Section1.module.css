@@ -1,0 +1,48 @@
+.sectionContainer {
+    padding: 20px;
+    background-color: #111; /* Dark background */
+    color: white;
+  }
+  
+  /* Header section containing the title and button */
+  .header {
+    display: flex;
+    justify-content: space-between; /* Title on the left, button on the right */
+    align-items: center;
+    margin-bottom: 20px; /* Space between header and grid */
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .tabs {
+    margin: 12px 0;
+    border-bottom: 1px solid #dc0606;
+  }
+  .genreTabs {
+    color:aliceblue !important;
+
+  }
+  
+  .MuiTabs-root {
+    min-height: 36px;
+  }
+  
+  .MuiTab-root {
+    text-transform: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    color: #f3f7f4 !important;
+  }
+  
+  .MuiTab-root.Mui-selected {
+    color: #2cec05 !important;
+    font-weight: 600;
+  }
+  
+  .carouselContainer {
+    margin-top: 12px;
+  }
